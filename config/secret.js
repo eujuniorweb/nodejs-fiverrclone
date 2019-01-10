@@ -1,7 +1,7 @@
 module.exports = {
 
-  database: process.env.DATABASE || '',
-  port: process.env.PORT || 3000,
-  secret: process.env.SECRET || '',
+  database: process.env.DATABASE || 'mongodb://localhost:27017/fiverrclone',
+  port: process.env.PORT || 3030,
+  secret: process.env.SECRET || 'fiverrclone222222',
 
 }
