@@ -8,7 +8,9 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/my-gigs', (req, res, next) => {
-    res.render('main/my-gigs');
+    Gig.find({owner:req.user._id},function (error, gigs) {
+        res.render('main/my-gigs',{gigs:gigs});
+    });
 });
 
 router.route('/add-new-gig')
