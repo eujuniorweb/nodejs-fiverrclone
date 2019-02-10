@@ -14,11 +14,10 @@ const passportSocketIo = require("passport.socketio");
 const config = require('./config/secret');
 const sessionStore = new MongoStore({ url: config.database, autoReconnect: true });
 
+
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-
-
 
 mongoose.connect(config.database, function(err) {
   if (err) console.log(err);
