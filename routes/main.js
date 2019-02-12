@@ -48,11 +48,11 @@ router.route('/add-new-gig')
     });
 
 router.get('/service_detail/:id', (req,res,next)=>{
-Gig.findOne({_id:req.params.id})
-    .populate('owner')
-    .exec(function (error, gig) {
-       res.render('main/service_detail',{gig:gig});
-    });
+    Gig.findOne({_id:req.params.id})
+        .populate('owner')
+        .exec(function (error, gig) {
+            res.render('main/service_detail',{gig:gig});
+        });
 });
 
 module.exports = router;
