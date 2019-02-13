@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -19,7 +20,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-mongoose.connect(config.database, function(err) {
+mongoose.connect(config.database, { useMongoClient: true }, function(err) {
   if (err) console.log(err);
   console.log("Connected to the database");
 });

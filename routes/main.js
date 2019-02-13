@@ -32,7 +32,6 @@ router.route('/add-new-gig')
                     callback(err, gig);
                 });
             },
-
             function(gig, callback) {
                 User.update(
                     {
