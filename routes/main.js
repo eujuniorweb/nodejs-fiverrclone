@@ -36,7 +36,8 @@ router.route('/add-new-gig')
                 User.update(
                     {
                         _id: req.user._id
-                    },{
+                    },
+                    {
                         $push: { gigs: gig._id }
                     }, function(err, count) {
                         res.redirect('/my-gigs');
